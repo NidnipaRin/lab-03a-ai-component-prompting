@@ -1,0 +1,161 @@
+/* ════════════════════════════════════════
+   TodoItem.css — สไตล์สำหรับ TodoItem
+   ════════════════════════════════════════ */
+
+/* ── Card หลัก ── */
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  transition: opacity 0.25s ease, box-shadow 0.2s ease;
+}
+
+.todo-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* สถานะเสร็จแล้ว — ทำให้จางลง */
+.todo-item--completed {
+  opacity: 0.55;
+  background: #f8fafc;
+}
+
+/* ── ส่วนซ้าย: ข้อมูลงาน ── */
+.todo-item__content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-width: 0; /* ป้องกัน overflow ใน flex */
+}
+
+/* ชื่องาน */
+.todo-item__title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e293b;
+  word-break: break-word;
+  transition: color 0.2s;
+}
+
+/* ขีดฆ่าและทำสีจางเมื่อเสร็จแล้ว */
+.todo-item__title--done {
+  text-decoration: line-through;
+  color: #94a3b8;
+}
+
+/* แถวข้อมูลย่อย */
+.todo-item__meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* วันครบกำหนด */
+.todo-item__due-date {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+/* ── ป้าย Priority ── */
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.badge--low {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.badge--medium {
+  background: #fef9c3;
+  color: #a16207;
+}
+
+.badge--high {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+/* ── ส่วนขวา: ปุ่ม ── */
+.todo-item__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* ปุ่มพื้นฐาน */
+.btn {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  transition: background 0.2s, transform 0.1s;
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+/* ปุ่ม Toggle — สถานะยังไม่เสร็จ */
+.btn--toggle {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.btn--toggle:hover {
+  background: #bae6fd;
+}
+
+/* ปุ่ม Toggle — สถานะเสร็จแล้ว */
+.btn--toggle-done {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.btn--toggle-done:hover {
+  background: #e2e8f0;
+}
+
+/* ปุ่ม Delete */
+.btn--delete {
+  background: #fee2e2;
+  color: #b91c1c;
+  padding: 6px 10px;
+  font-size: 1rem;
+}
+
+.btn--delete:hover {
+  background: #fecaca;
+}
+
+/* ── Responsive: มือถือ ── */
+@media (max-width: 480px) {
+  .todo-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .todo-item__actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
